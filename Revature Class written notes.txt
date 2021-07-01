@@ -1,0 +1,414 @@
+DT: 29/06/2021
+mark and sweep algo used for garbage collection,Mark the objecs and sweeps the memory in a rapid way.
+java is bottom to top
+compiler/Interpretor
+src code -> fileName.java
+given this file to javacompiler
+javac(java Compiler) fileName.java
+ 
+on Scuccess compilation we get
+fileName.class(it Could be bytecode/object code/machine understandable code)
+
+import java.util.Calendar; (Best Practice)
+import java.util.*; (Bad Practice)
+user defined package
+package mypack; 
+class MyClass{
+}
+
+.class in bin
+src :  java code
+____________________________________________
+java use 'default' as default access modifer
+public class FirstJavaClass{}
+default : within the folder like ur friends within the package
+private : only me
+protect  means : relationship should be there
+public : access everywhere
+we can't have two public class in same .java file
+we can have any number of default classes
+we can't have private,protected classes as outer classes(ouside of class means class classname{psvm{}}), but we can have inner private protected public default static classes outside of main within the psvm.
+classname and file name should be same
+follow name convention => MyFirstJavaClass
+compiler follow nameing convention for subclasses
+mainclassname$subclassname
+___________________________________________________
+public static void main(String[] args){}
+execution starts from main from { and ends at } whatever code we have will be executed.
+why public : jre is outside so that he can enter into our class and execute our class
+jvm resides in jre
+why static : 
+jvm gets memory from os and divide it into two parts
+1) storage area ex: HDD/HEAP permanenet
+2) execution area RAM/ STACK temp
+whatever method/class bring it in stack and throw it back
+all the non-static things will be in storage area
+all the static things will be in execution area
+in stack java inter preter resides. all static directly loaded into stack
+you can accessed it without creating objects of it.
+
+why not everything will be static?
+java not 100% oops
+2 resons
+1. static voilating oops(says everyting should be acces via class and objects)
+2. primitives datatypes
+static : if we load eveyting memory get overflow
+class product{
+double price; //uncommon;
+String pname; //uncommon;
+static float discountonAll_product; //common
+}
+
+why void? : does not return anything
+
+why main?  : just name of the method to start execution or we can say entry point
+we can see entry point board on gate of mal,  we can say entry point.
+
+why (String[] args) : why String only? : everyone will have their own mother tongue so same case here java mother tongue is String-> java READ/WRITE everything in STRING.
+[] args ? : for passing multiple inputs thru commands
+real life example debit card and ATM
+
+____________________________
+29/6/2021 3:34pm
+
+Data Type => The one which describes type of the memory which I want to hold the data.
+for every type comes with its own size.
+
+Java has 8 primitive data types which are dynamically allocated.
+int x = 100; 'x' is a variable of type int which having 4bytes of memory holding the value 100;
+String s = "String";  's' is a object of String Class which is pointing to the reference(Memory address) of the Hello not the value.
+
+8 data types and its size
+(whole numbers)
+1. byte 1-byte default value 0;
+
+2. short 2-bytes default value 0
+
+3. int 4-bytes default value 0
+
+4. long 8-bytes default value 0L. must put L at the end otherwise considered as int.
+
+(decimal values are larger than whole numbers)
+5. float 4-bytes default value 0.00000f
+
+6. double 8-bytes default value 0.00000f(any decimal values in java by default considered as double)
+
+7. char 2-bytes '\u0000' why 2 bytes? : It supports 1-byte(ASCIII) and 1-byte(UNICODE) = 2-bytes.
+
+8. boolean 1bit false by default/true
+_________________________________________________
+Type casting : conversion of one of the compatible types to another one.
+1) Implicit: smaller size of type is assigned to larger size of type(taken care by the compiler)
+ex:
+double d = f; float to double
+d = m //long to double 
+f = x //int to float
+
+2) Explicit : larger type in size when we assign it to smaller type in size (which should be done by programmer explicitely)
+ex:
+int c = 98 ;
+char s = (char)c; //explicit
+println(s); // b
+
+float f1 = 22.44f;
+int i = (int)f1;
+println(i) // 22
+long to int will be explicit
+float to long will be implicit
+to knw the range of int: 
+println(Integer.MAX_VALUE); //similar for other primitives.
+
+______________________________________________________________________
+29/06/2021 4:02PM
+public static_nonstatic_eg;
+//importing the public static_nonstatic_eg2 for accessing that class
+import static_nonstatic_eg2.Hello; //similar to  import java.util.Scanner;
+
+public class Demo1{
+public static void main(String[] args){
+System.out.println("Hello from main");
+iamStatic();
+Demo1 d = new Demo1();
+d.iamNonStatic();
+d.iamNonStaticAgain();
+Calculator.iamStatic() //static method of other class
+Calculator  c = new Calculator();
+c.iamNonStatic();
+c.iamNonStaticAgain();
+
+Hello h = new Hello();
+h.iamNonStaticAgain(); //not accessible because there is no public beside that method,it took by default default.
+}//main
+
+public static void iamStatic(){
+System.out.println("Iam static from same class");
+}//iamStatic
+
+public void iamNonStatic(){
+System.out.println("Iam non static from demo1 class");
+}//iamNonStatic
+public void iamNonStaticAgain(){
+System.out.println("Iam non static Again from demo1 class");
+}//iamNonStaticAgain
+}//demo1
+_________________________________________________
+Calculator.java //diff file but in same package
+public static_nonstatic_eg;
+public class Calculator
+{
+public static void iamStatic()
+{
+	System.out.println("Iam static from claculator same class");
+}//iamStatic
+
+public void iamNonStatic()
+{
+	System.out.println("Iam non static from calculator class");
+}//iamNonStatic
+public  void iamNonStaticAgain()
+{
+	System.out.println("Iam non static Again from Calulator class");
+}//iamNonStaticAgain
+}//calculator
+==============================================================
+Hello.java //from different package
+package static_nonstatic_eg2;
+public class Hello
+{
+public static void iamStatic()
+{
+	System.out.println("Iam static from claculator same class");
+}//iamStatic
+
+public void iamNonStatic()
+{
+	System.out.println("Iam non static from calculator class");
+}//iamNonStatic
+
+ void iamNonStaticAgain()
+{
+	System.out.println("Iam non static Again from Calulator class");
+}//iamNonStaticAgain
+}//hello class end
+_________________________________________________________________
+File Name : Product.java
+Package Name : package static_nonstatic_eg3;
+
+public class Product{
+int x;
+int y; 
+//here x and y are called global object/instance level varibles
+static int z; // z is called as global class level variable(Common to all objects)
+
+public static void main(String[] args){
+
+	Product p1 = new Product();
+	p1.x = 99;
+	p1.y = 100;
+	System.out.println("Printing for p1");
+	p1.printXYZ();
+
+	Product p2 = new Product();
+	p2.x = 66;
+	p2.y = 100000;
+	p2.z = 8888;
+	System.out.println("Printing for p2");
+	p2.printXYZ();
+
+	System.out.println("Printing for p1 again");
+	p1.printXYZ();
+
+}//main
+
+public void printXYZ()
+{
+	System.out.println("x = "+x);
+	System.out.println("y = "+y);
+	System.out.println("z = "+z);
+
+}//printXYZ
+}//product
+local var is shawdod with global var by using 'this' keyword
+default value of any object is null
+rightclick>source>generateconstructorsforallfields
+constructor chaining should be in one line
+__________________________________________________________________________________________________________________
+30/06/2021 10:08AM
+overriding is possible only when there is parent child relationship
+single : one parent one child
+Hierarchical Inheritance : one parent 3childs all inherit from one parent
+multilevel inheritance : parent<c1<c2
+mutiple : sup1 sup2 sub class inherits from bth not supported in java
+hybrid (hie+multi/any two things together hybrid) not supported in java
+object class is the superclass of all the classes
+objname.getclass() //use to print package and classname
+objname.gethashcode //print hashcode of a class
+java follows bottom-up approcah
+constructor invoking is from top to bottom
+interpretor goes top to bottom line by line.
+________________________________________________________________
+In method overloading return type could be anything, only thing is parameters should be different.
+@overriding : 
+modification of a existing feature of a parent in child class
+we can override sub class method in subclass itself
+all this done at runtime. because memory is allocated at runtime.
+
+we can't override anything which is static.(bcoz we can access static with obj only which is related to object can be ovveride)
+final methods also can't be override.
+for doing ovverind there must be parent child relationship, same name and paras. only updating behaviour in child class of a parent method.
+parent method and child method visibility(access modifier) should be same. but u cannot decrease the visibility means(if parent is public then we can't have child method as protected or others bcoz public is higher than all of them)
+public>protected>default>private
+annotaion comes into picture from java v7
+what is annotations?
+basically it reminds the developer there is a typo mismatch in the method name of the parent and child class.
+we can make it remind them by using
+@Override just above the override method in child class.first letter should be caps of annotations
+____________________________________________________________________
+3:46pm
+object casting : Where a child class object will be converted to parent and vice versa.
+when inheritance then only we can cast object.
+there are two types of object casting:
+1) Implicit casting : taken care by the compiler smaller -> Bigger
+Bigger = parent class, Smaller - child class.
+MobileV3 v3 = new MobileV3();
+Object o = v3;
+o can access its own methods and if any of his methods are overridden/updated in child.
+
+2)Explicit casting larger to - > smaller
+MobileV1 v1 = (MobileV1)o;
+v1 can access his methods and his parents methods and any of his methods if it is updated or overridden in the child class.
+ 
+Object o = new MobileV2(); //implicit
+Object o = v3; //implicit
+4:42
+where do we apply above concept?
+ans: for comparing two objects we are using
+comparison operators only for primitive datatypes
+if do then it will compare memeory adress
+
+____________________________________________________________________________________________
+5:09
+Abstraction: a class is said to be an abstract class if it having at least one abstract method.
+abstract won't have any body so we can't create object of abstract methods
+abstract methods cannot be static(alreeady defined n loaded) or final
+abstract class dont have constructors
+abstraction can be achieved by using interface concept.
+abstract methods can have abstract methods as well non abstract methods
+by creating the object of child class we can call abstract class methods. make sure thaat your subclass should be non abstract.
+abstract method/class can have access to any access modifer but can't downgraded it
+___________________________________________________________________
+01/07/2021
+10:00AM
+using constructors u can't update everytime bcoz it agains create objects.
+so we take help of setters and getters to update fields manyway.
+
+All Abstract, default and static methods in an interface are implicitly PUBLIC,
+so u can omit the public modifier.
+All constants values defined in an interface are impi PUBLIC,
+
+STATIC AND FINAL. u can omit public.
+Abstract:                                      Interface
+1. abstract class uses abstract keyword        1. Interface use interface as keywords to define themselves they are just class itself
+2. We can extend only one class		       2. We can implement any number of interfaces
+3. any class default visibi will be default    3. any variables declared in interface is considered as static and final
+4. to make anything as static and final in     4. No Constructors
+   in classes we must use those keywords	
+5. We can have overloaded constructors which   5. no such thing 
+   can be invoked by the child class constr
+   using super class
+6. for classes we use extends keyword	       6. implements keyword
+
+from java8 it is allowed to have default methods in interface.
+anthing which is abstract cannot be instantiTED rather we use chid clas 
+
+//L.H.S should be interface and right hand side should
+	//be its implementing class(code to interface) 
+
+1.An interface can extends another interface
+public interface childInterface extends ParentInterface{}
+if we want to implement innerInterface we need to do
+public class Imp1 implements ChildInterface, ChildInterface.InnerInterface{}
+
+
+2. We can have innerclasses in interface
+public class imp1 extends ChildInterface.Innerclass{}
+
+3. Static methods allowed in interfaces from JAVA 8
+mising one point
+
+Interface are of 3 types
+1) Normal Interface : Interface with any number of abstract methods in it.
+2) Functional Interface : with only and only one abstract method but u can have any number of non abstract methods.
+3) Marker Interface : Interface with no abstract methods at all, which is use by compiler to mark that it does some job.
+eg: serilizable
+
+//Lamda Expression (->) it is used to give the defination for abstract method of funtional Interface only.
+it is only use for functional interface
+we use @FunctionalInterface annotation before the public interface HelloFromFn1{}
+by using we functional interface we can have multiple defination for same method.
+we will be dealing with marker interface in files concepts.
+_____________________________________________________________________________________
+1:05 Wrappers and String Class
+Java5- Collections relased.
+will accept only and only objects
+int -> integer
+int x = 10;
+Integer i = 10; // i is refereing to addres of x
+comes in java.lang package.
+Integer is a class
+Integer.MAX_VALUE here integer is a class and Max_VALUE IS METHOD.
+for STRINGS AND 8 WRAPPER CLASSES so we dont have to use new keyword over there bcoz we have common string pool in heap given by jvm.
+String  s = "Hello"; //no new keyword req
+s4 = s4.intern(); //brings s4 from heap general memeory to string common pool.
+.equlasIgnoreCase() will ignore case senitive hello and Hello will be True;
+.equals() // strictly case sensitive hello and Hello will be false
+String s1 = "hello"
+s1.startsWith("he");  true
+s1.endsWith("llo"); true
+s1.constains("ello"); /true
+s1.contains("lol"); //false
+s1.contains("e"); tryue
+if u assign s1.replace("l","m") then it will replce else it will remain hello
+Integer i = 10; //no new keyword req
+object will point to adress of value
+String s4 = new String("hey");
+devloper want sperate memory inside heap but outside common string pool.
+in case of string == checks the memory adrress
+in case of string .equals() checks the value
+
+autoboxing : int x = 100;
+	     Integer i1 = x;
+automatically encapsulating the primitive to its equivalent wrapper class.
+compareTo():
+_____________________________________________________________________________________
+3:37PM
+character wrapper class
+String s = "A S d    !@_ dsk1239AX1iK>_f";
+character demo methods pending
+_________________________________________________________
+Reg-Ex - 
+[] = represents expression
+{} = represents length
+^ = not
+[a-z]{3} = any 3 lower case character are accepted
+[A-Z0-9]{5} = any combination of 5 uppercase with digits are accepted
+[A-z]{5}[0-9]{4} = five Upper case letters followed by 4 digits.
+[a-zA-Z]{2,8} = any word of min length of 2 and max length of 8
+[0-9]{1,} = minimum length is 1 and max can be infinite
+[^0-9] = apart from digits anything
+
+String s = "JKHPS1586P";
+if(s!=null && s.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}"))
+	println("Valid PAN");
+else
+	println("NOT VALID");
+
+Task- write regex for all the govt id's you have(license,uid,bikenumber)
+____________________________________________________________________________________
+4:16pm- StringBuffer and StringBuilder
+String and StringBuffer and StringBuilder are final classes coz they don't have any parent child
+relationship.
+- StringBuffer and StringBuilder are mutable objects
+- They can update in same memory itself.
+- There is no common pool for these both which means you must create them using new keyword only.
+- StringBuffer and StringBuilder are Thread Safe
