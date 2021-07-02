@@ -412,3 +412,218 @@ relationship.
 - They can update in same memory itself.
 - There is no common pool for these both which means you must create them using new keyword only.
 - StringBuffer and StringBuilder are Thread Safe
+______________________________________________________________________________________________
+02/07/2021 10:15AM
+Arrays println("arr["+i+"] : "+arr[i]);
+1. Collection of Similar type
+2. Comtiguos memeory location(0->N)
+3. Fixed Size(Static in nature)
+4. Insertion and Deletion in any position
+5. Indexed Based
+6. Initiliazed all the locations will be filled with default values of that particular type,
+   incase of string and objects default value stored will be null.
+
+foreach loop
+for(int x : arr){}
+System.out.println(Arrays.toString(arr)) //will print all arrays ele without using loops.
+System.out.println(Arrays.binarySearch(arr,position)); //not benifi if duplicate ele there
+
+//copy of array
+int arr1[] = Arrays.copyOf(ar,ar.length+10);
+println(Arrays.toString(arr1));
+
+//fill for arr1 by default as -1
+Arrays.fill(arr1,-1);
+println(+Arrays.toString(ar1));
+
+//equals method
+Arrays.equals(arr1,arr2); //compares with index and values should be same
+
+//Tasks: 1. Find all the palindrome in an array
+	 2. Find all Prime numbers in an array
+	 3. Find average of even and odd numbers in array
+	 4. Find the characters of a string which are in prime index postion and print them in uppercase
+	 5. Find if all the vowels are present in an String or not.
+	 6. Find if all the vowels in a proper order of AEIOU is present in string or not.
+	 7. Remove all the duplicates in an array
+	 8. Remove all the duplicate character from a string
+	 9. Print the number which is occuring highest number of times in an array.
+	10. Print the 2nd highest number in an array(there will be duplicates)
+2-D ARRAY later we will do it
+_____________________________________________________________________________________
+11:39AM-> Exceptional Handling
+
+Exception Handling
+--------------------------
+What is error? What is Exception?
+*error is a non recoverable situation.
+*exception is something which can be handled and can continue the same
+flow of execution.
+* basically in any application due to user's input or due to
+our logical error it may lead to abnormal termination of a application which
+is a very bad practise, an application which terminates abnormally
+is considered as 0 quality app and nobody wishes to buy or get such
+application.
+*Exception handling will help you handle the exceptions which has been
+raised and terminate normally with the proper communication to the
+end user, where such app which handles all the abnormal status normally
+its the app which is sold highest in any market.
+*It is always encouraged to write a better exceptional handling to get
+a better review or quality about the product.
+* There are set of predefined exceptions and there can be created 
+some of userdefined or custom exceptions for fulfilling business requirement
+too.
+* All the predefined Exceptions comes under Throwable class.
+* and java.lang.Exception is a super class for all the exceptions
+in java.
+*There are 2 types of exceptions
+  a)Checked Exception(java.lang.Exception) -> this exception forces the progarmmer to handle it
+ 			at the compile time itself, until the programmer
+			handles it, compiler wont allow to run.
+			some of Checked exceptions are
+			FileNotFoundException, ClassNotFoundException,
+			MethodNotFoundException, SQLException and more.
+  b)Unchecked Exceptions(java.lang.RuntimeException) -> These exceptions are part of java.lang.RunTimeException
+                         which occurs at a run time, it is upto programmer
+			weather he wants to handle this or not, if he
+			doesnt handle it, it will lead to abnormal termination.
+                      few unchecked exceptions are:
+			ArithmeticException, NullPointerException,
+                        ConcurrentModificationException,
+			ArrayIndexOutOfBoundException,
+                        StringIndexOutOfBoundException and more.
+Exceptions can be handled using:
+1)try...catch...finally
+2)throws
+3)throw 
+
+1)try...catch...finally
+---------------------------------
+* try is a block of code where we keep the code which is suspected to
+generate a exception.
+*catch is a handler which handles the exception raised by try block.
+*finally is such block of code which is executed despite of exception is 
+caught or not, we can use such block to clear our resources.
+*a try block should and must be followed by catch or finally, 
+u cannot write try alone.
+*there can be any number of catch blocks for a single try which should be
+written in the order i.e the child class exception should come first and
+followed by the rest.
+*finally and try will be a single block.
+*if no catch you can even write finally, if there is a catch then 
+finally comes at the end of all catch blocks.
+
+
+2)throws
+---------------
+used to throw multpile exceptions at the method level to the calling method.
+use it to force the programmer who is creating the object for that
+method will handle it.
+
+
+3)throw
+---------------
+used to create the exception object of our own to throw our own customised
+exception with our own customised message.
+
+
+
+Any app in the world having 3 Layers
+1. Presentation Layer(presentation logics to beautify/UI)
+2. Business or Application Layer(All the complex logic here)
+3. Storage or Persistance or DB Layer (Databse SQL/NO SQL)
+
+Object
+1)Throwable
+1a) Error
+1b) Exception superclass for all the exception
+checked exception: happens when compiler is expecting error and want programmer to handle it. until you don't handle it I won't fix that.
+
+
+____________________________________________________________________
+3:38PM Helper Class java.util.Collections; sort(),binarySearch() 
+Collections basicallly tries to give solution to a given problem
+how? let see
+Arrays are of fixed size,having similar type, contiguos memory location, CRUD operations are lengthy.
+========Collections Framework===========
+- Dynamic in Nature
+- Accepts only objects
+- Resizable (Don't have to define size)
+- anytype(Object)
+- Iterable(Don't have to use for loop to see the content,
+  we can see it easily using iterator obj).
+Root for All the collection is Collection Interface except MAP
+1)Iterable
+A) Collection<E>(I)
+1a) List<E>(I) has three providers i)Vectors<E>(I) uses array internally ii) ArrayList<E>(I) uses arrrays internally iii) LinkedList<E>() uses node like structure to maintain the data.
+1b) Queue<E>(I)
+1c) Set<E>(I)
+
+I = Interface
+E = Generic Type = wil give type compatibility
+C = Class
+
+Collection is a root for all the collections and collections is a utility class.
+
+i)Vectors<E>(I) 
+- uses array internally
+- By default it gives 10 memeory loc, after 10 gets full it will add 10 more.
+- Contiguous
+-legacy thread safe
+
+ii) ArrayList<E>(I) 
+- uses arrrays internally
+- resizing capacity 10-> newmem = old + 50%old=10+5=15
+  total will be prev 10 + newmem = 25
+- not thread safe
+
+iii) LinkedList<E>() 
+- uses node like structure to maintain the data.
+- resizing capa -> 1 node at a time
+- not thread safe
+.add()
+.set() // update
+.get() //get particular ele
+.remove() //accept both objects and primitive
+.size() //size of ele
+.clear() //to clear the list.
+.addAll(listname_obj) //union all
+list2.retainAll(li1) //intersection of li2 and li1, results will be stored in li2
+li2.removeAll(li1) // like a-b operation contents of a which are not there in b will be removed and results will be stored in a.    
+
+some helper classes
+Collections.reverse(li1);
+Collection.shuffle(li1); //everytime we referesh it will shuffle elements
+Collections.replace(li1,null,-1);
+Collection.sort(li1); //ascending by default make sure you dont have any null values
+//print in descending
+Collections.sort(li1,Collections.reverseOrder()); //it is an overloaded method
+Collections.sort(li1);
+Collections.binarySearch(li1,23);
+li1.contains(100); //true searches and print true if there.
+_____________________________________________________
+Task- compare the LL and PriorityQuee and come up with code exmple.
+________________________________________________
+Set<E>(I)
+it is unique,unindexed & unordered = internal order(Hashing order generated by hashing object).
+1a) HashSet<E>(C) -> i) LinkedHashSet<E>(C)
+1b) SortedSet<E>(I) i)NavigableSet<E>(I) i1)TreeSet<E>(C)
+all three will be having 16mem location only
+- every mem acts as binary tree(much more faster way)
+- It will allow only one null value.
+- no duplicates no replace shot here.
+- hash will not maintained order.
+- linked mentained order os set by DLL
+- Tree is in sorted order by default and with the help of BST (asc/dse)
+  we can pass null values in Trees.  output is in alphabet order.   
+.add() //for adding elements
+.remove("hi");
+treeset.contains("hibernate") //true
+.addAll()
+.retainAll()
+.removeAll()
+treeset.size()  
+//for removing duplicates.
+List<String> list =  Arrays.asList("hello","hello","abc");
+Set<String> set = new TreeSet<>(list);
+s.o.pln(set)           
