@@ -1,5 +1,5 @@
 package ten10_array_problems_solutions;
-//1. Find all the palindrome in an array
+//1. Find all the Palindrome in an array
 public class Palindrome {
 
 	public static void main(String[] args) {
