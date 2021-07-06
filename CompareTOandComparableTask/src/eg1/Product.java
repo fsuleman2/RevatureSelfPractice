@@ -75,9 +75,9 @@ public class Product  implements Comparable<Product>{
 	}
 	@Override
 	public int compareTo(Product o) {
-		Float f1 = this.price;
-		Float f2 = o.price;
-		return f1.compareTo(f2);
+		String f1 = this.availability;
+		String  f2 = o.availability;
+		return f2.compareTo(f1);
 	}
 	
 	

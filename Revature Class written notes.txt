@@ -908,3 +908,183 @@ then t. join() will make sure that t is terminated before the next instruction i
 synchronized(){}
 //explore wait,notify, notifyall()
 //try producer-consumer problem
+___________________________________________________________________________________________________________
+06-july-2021
+11:11AM
+Why we need Apache's Maven?
+- Free
+- Open Source F/W
+- Easy to use
+- Maven is known as Build Automation Tool
+
+Developer's Machine
+--------------------
+-> Dependencies
+- java1.8
+- postgres 10.17
+- junit5.1 //for tescases
+- log4j 2.1
+- hibernate 5.1
+- spring 4.5
+Client Machine
+--------------
+Install or make available of all depen
+to over come this and to avoid heache of doing everything manually we can use Maven
+-----------------------------------
+Maven maintain evrything as pom.xml file(project object module)
+it consist of  congig file, Where we can specify all the depend aboe mentioned.
+it connects it to remote repo where all the depn will be availble, from that repo maven download & installed(only when all the testcases cleared)what it requires in to client machines.
+all test cases passed then only we can take the application to Production Environment(LIVE).
+
+.exe (windows executable file)
+.class (java executable file)
+.jar (java archive file)
+.war (web archive file)
+.ear (enterprise achieve)
+src/main/java all java classes go
+src/main/resources any config for ur java application (.xml/.prop)
+all the test cases will be in src/test/java
+all the config files fo java will be in src/test/resources
+-----------------------------------------------------------------------------------------------
+JUNIT5 latest version is 5
+---------
+- unit testing framework
+- used as TDD(test driven development) tool
+- free adn Open source
+- from eclipse org
+- written using Java devs to perform unit testing on the Java apps.
+
+Testing
+-------------
+- Unit testing (taking single unit n testing)
+- System testing (whole system testing)
+- functional/integration testing (end to end testing)
+*give quality
+*gives values
+What is TDD(TEST DRIVEN DEVELOPMENT)?
+Imagine a code challenge its all about problem solving, if im not giving sample I/O.
+TDD is all about deevloper mind set of wrtitng test cases first then code.
+TDD is a style of programming where you write test case first i.e minimal testing thing, once u write the test cases u are aware that wht is expected and go ahead write your code and run the test cases on that you will see weather all test cases pass or not, if any failure is there fixed it and again check .
+if u feel i need to give other input and test.
+JUnit 4 is use to test our old test cases. for backward compatability
+junitenginer all the predfeind classes is there and jnunit-jupyter-api enginer is testing that.
+testng-api is for integration testing.
+junit-platoform-engine
+it is use for testing test cases which is there on platform like maven.
+- jupiter-api provides all annotation
+- Assertions
+helps to compare expected value with actual value
+eg: you are testing wheather number is even or not.
+if passing even it returns true else false (expected)
+assertEquals(true,isEven(4)); //asertion checks wheather test cases pass or not
+it just validates wheatever value u r getting from ur methods.
+--------------------------------------------------------------
+<dependencies>
+ <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.4.0</version>
+        <scope>test</scope>
+    </dependency>
+ <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.4.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+*read about maven architecture:
+_________________________________________________________________________
+3:30 
+Task with JUNIT testing (BUS)
+Three-tier architecture is a well-established software application architecture
+that organizes applications into three logical and physical computing tiers:
+
+1) The presentation tier, or user interface; 
+2) The application tier, where data is processed; and 
+3) The data tier, where the data associated with the application is stored and managed.
+
+The chief benefit of three-tier architecture is that because each tier runs on its own infrastructure,
+each tier can be developed simultaneously by a separate development team,
+and can be updated or scaled as needed without impacting the other tiers.
+-----------------------------------------------------------------------------------
+Apache's log4j -- useful for creating our own log files.
+one log4j is enough for one application
+- logging framework
+- written using java
+- free and open source
+-  log4j.properties is a config file which resides in main/resources. In which data is stored in key value format
+log :  a log file is a file that records either events that occur in an operating system or other software runs,[1] or messages between different users of a communication software. 
+Logging : Logging is the act of keeping a log. In the simplest case, messages are written to a single log file.
+Why we need it?
+suppose if our application got crashed from customer side and we want to know 
+what actually happens so that we can get our app back to live.
+
+log4j has 3 main components:
+1. Logger Components : using this we can write our log messages
+- Log Level lowest to highest
+	0 trace
+	1 debug
+	2 info //anything to comm with customer
+	3 warn //any exception warning
+	4 error //any incoming error from system unable to login
+	5 fatal // app is crashing (jvm is out of memory)
+4 & 5 can't be fixed auto, dev need to fixed
+above level(0,1) be deactvt, (2,3,4,5)below level is activated.
+Note: log 0 and 1 for dev, 2,3,4,5 for customers.
+
+2) Appender Component : Using we can append output to the console, file, or store the output in DB.
+
+3) Pattern Component :  tells the pattern of the output, You want to display date time etc
+- Basically formatting the output on the console.
+- strictly CASE-SENSITIVE
+
+Download log4j dependecies from maven repository Google.
+we are inside log4j.properties file
+To write comment in log file use #
+#setting up log level of our app
+
+log4j.rootLogger = TRACE,vinay //  here we can change TRACE to other Log Levels like error warn etc
+
+#variable vinay points to the console.
+
+#configuration of console(vinay) object
+log4j.appender.vinay = org.apache.log4j.ConsoleAppender #console.logAppender is a .jar file
+
+# now for pattern output formatting
+log4j.appender.vinay.layout = org.apache.log4j.PatternLayout
+# Wild card for pattern
+# %m - log message
+# %n - new line or line break
+# %p - log level
+# %c - class name
+# %d - date and time
+# dd-date MM-2 digits of month MMM- short name of month MMMM - full name of the month
+# yy - last 2 digits of year yyyy - full year it print
+# EEE - short name of the day EEEE - full day name 
+# HH - 24 hour hh - 12 hr mm - minutes ss - seconds Z/z - time zone and GMT
+eg : 
+for exmple:
+#let say i want to print the msg and want to got for new line
+log4j.appender.vinay.layout.ConversionPatter = %m%n
+
+create ur Main.java class
+in that before void main
+private static Logger log = Logger.getLogger(Main.class)
+//inside main now
+Log.trace("Hello from");
+Log.debug("Hello from");
+Log.info("Hello from");
+Log.warn("Hello from");
+Log.error("Hello from error");
+Log.fatal("Hello from fatal");
+----------------------------------------------------
+anyfile name just end it with .log extension
+eg: applogs.log
+___________________________________________________________________
+Design pattern is to make ur code Readable, more understandable can add modules if required
+- GOF(Gang of Four) Patterns
+------------------------------
+1) Creational 
+2) Behavioural
+3) Structural
