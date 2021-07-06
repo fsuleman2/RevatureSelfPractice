@@ -452,6 +452,7 @@ Arrays.equals(arr1,arr2); //compares with index and values should be same
 2-D ARRAY later we will do it
 _____________________________________________________________________________________
 11:39AM-> Exceptional Handling
+07/02/2021 01:15:19 PM
 
 Exception Handling
 --------------------------
@@ -535,11 +536,18 @@ Any app in the world having 3 Layers
 
 Object
 1)Throwable
-1a) Error
-1b) Exception superclass for all the exception
-checked exception: happens when compiler is expecting error and want programmer to handle it. until you don't handle it I won't fix that.
+1a) Error : like ur application got crashed which u can't handle.
+1b) Exceptionclass is the superclass for all the exception.
+checked exception: Checked Exception happens when compiler is expecting error and want programmer to handle it. until you don't handle it I won't fix that.
+Any class that is a direct child of EXCeption class is called Exception
+eg: FileNotFoundException, ClassNotFoundException, SQLException, ParseExeption
+another direct class of class Exception is RuntimeException(unChecked Exception)
+RuntimeException(UnChecked Exception) : are the exception in which compiler don't force programmer to handle it,programmer has its choice either it handle it by using try catch or use some logic or right code in such a way that it does not cause error.
 
+eg: ArithmeticException, NullPointerExeption, ClassCastException,ConcurrentModificationException,
+IndexOutOfBoundException(ArrayIndexOutOfBound and StringIndexOutOfBoundException)
 
+*if you want to create your own custom CheckedException
 ____________________________________________________________________
 3:38PM Helper Class java.util.Collections; sort(),binarySearch() 
 Collections basicallly tries to give solution to a given problem
@@ -589,7 +597,7 @@ iii) LinkedList<E>()
 .clear() //to clear the list.
 .addAll(listname_obj) //union all
 list2.retainAll(li1) //intersection of li2 and li1, results will be stored in li2
-li2.removeAll(li1) // like a-b operation contents of a which are not there in b will be removed and results will be stored in a.    
+li2.removeAll(li1) // minus like a-b operation contents of a which are not there in b will be removed and results will be stored in a.    
 
 some helper classes
 Collections.reverse(li1);
@@ -615,7 +623,7 @@ all three will be having 16mem location only
 - hash will not maintained order.
 - linked mentained order os set by DLL
 - Tree is in sorted order by default and with the help of BST (asc/dse)
-  we can pass null values in Trees.  output is in alphabet order.   
+  we can't pass null values in Trees thru nullptrexce.  output is in alphabet order.   
 .add() //for adding elements
 .remove("hi");
 treeset.contains("hibernate") //true
@@ -626,4 +634,277 @@ treeset.size()
 //for removing duplicates.
 List<String> list =  Arrays.asList("hello","hello","abc");
 Set<String> set = new TreeSet<>(list);
-s.o.pln(set)           
+s.o.pln(set)
+__________________________________________
+5/july/2021
+10:30am
+Map Interface: 
+A Map is an associative array data structre. "Key" -> Value
+HashMap is one of the implementation of Map Interface.
+*Map is a part of Collections f/w but not under Collection interface.
+*Map comes with Key and Value pair where every Value is dependent on the Key.
+*Key is unique and value can be duplicated.
+* it is unindexed an unordered.
+*Map is implemented in HashMap,LinkeHashMap,TreeMap and Hashtable classes.
+KeySet() : Group of keys
+values() : Group of Values
+entrySet() : a record it called entry(key and value) //college n list of students unique and repeated
+1)Map<K,V>(I)
+1a) HashMap<K,V>(C)
+i) LinkedHashMap<K,V>(C)
+only deiff between the hashmap and linked hashmap
+hash does not maintained order of insertion where as linkedhashmap maintain the order of insertion
+
+1b)SortedMap<K,V>(I)
+i)NavigableMap<K,V>(I)
+ii)TreeMap<K,V>(C)
+
+*It implements Map, SortedMap and NavigableMap interfaces.
+*not synch
+* maintains the order of a key by using Comparable/Comparator object.
+* key cant be null, any number of values can be null.
+* since its sorted its faster for searching n traversing.
+
+1c) Hashtable<K,V>(C) 
+-neither key nor value null here
+-all the legacy classes are by default Synchronised and thread safe.
+-No insetion order
+*It implements Map.
+* generally known as no null Map or no null table i.e neither a key nor
+   a value can be null over here.
+*it is thread safe.
+* it wont maintain the order of insertion.
+_____________________________________________________________________
+Map<Integer, String> hm =  new HashMap<>();
+hm.put(100,"Java");
+hm.put(100,"updated") // it will update from java to updated if we insert another value for a same key
+hm.put(null,"jre"); //only one key can be null
+hm.put(190,null)
+hm.put(190,null) //any no. of values can be null
+same above in LinkedHashMap except linkedHashMap preserve the Insertion Order.
+Map<Integer,String> lhm = new LinkedHashMap<>();
+in TreeMap we can't even insert one null value also, if we do we get error.
+In HashTable we can't insert neither of one KEY and Value as NULL.
+methods:
+ht.put(key,value)
+ht.get(key) // returns value
+ht.size() //return size of ht
+ht.remove(key) //if key gone value also gone.
+ht.containsKey(key) //returns true or false
+ht.containsValue(value) //returns true or false
+ht.keySet() //will give all the keys from hash table
+ht.values() // give all the values 
+==========================================
+How would u iterate one by one? lets c.
+-> first extract it into set
+Set<Integer> set =  ht.keySet();
+for(Integer i : set){
+	syso("Key = "+i+" Value = "+he.get(i));
+}
+---------------------------------------------
+another way to iterate thru hashmap
+for(Entry<Integer,String> e : ht.entrySet())
+{
+	syso("Key -> "+e.getKey()+" Value -> "+e.getValue());
+}
+---------------------------------------------------
+Problem sttmt: General common to all Collections
+// Remove all key value pairs of any key which is null or any value which is null or if any key is divisible by 10
+let say we have this data
+
+Map<Integer, String> hm =  new HashMap<>();
+hm.put(100,"Java");
+hm.put(100,"updated");
+hm.put(1000,"null");
+hm.put(2000,"jdk");
+hm.put(10,"JavaScript");
+hm.put(11,"null");
+hm.put(199,"Java1");
+hm.put(null,"jre");
+for(Entry<Integer,String> e : hm.entryString()){
+if(e.getKey() == null || e.getValue() == null || e.getKey()%10==0){
+hm.remove(e.getKey()); //concurrentmodification exception
+by two objects we are doing two diff operation so getting concu exception.
+}
+}//fail fast
+fail safe
+to avoid this exception we are using Enumerator
+Enumerator - > read operation from T-B
+Iterator - >  read and remove from T-B
+ListIterator - > specifically design for List Interface and it can do
+add, read, and remove and its Bi-directional.
+.hasNext() //check wheather there is any key value pair there or not
+.next() read and look for next
+____________________________________________________________________
+Comparable and Comparator are functional Interfaces.
+- T = Functional Interface has only and only one abstract method.
+***************Diff comparable and comparator**************
+Comparable<T> : Comparator <T> use for SORTING custom objects
+java.lang : java.util
+int compareTo(Object o); : int compare(Object 01,Object o2);
+within the POJO class : defination can be anywhere
+compareTo() : compare()
+Task : try above with Treeset
+Task : repeat same using Product(id,manufacturername, pname,cost,ratings,availability-yes/no) from scractch.
+_______________________________________________________________________
+12:55pm
+Stream API's : 
+.stream()
+.filter()
+.map()
+var args - variable number of arguments
+you can pass 0 to N number of args of same type
+rules : we cannot have 2 var args as params for a method signature
+...a ...b wrong you cannot have only
+-> You can have any number of normal params but they should be var args i.e var args should be the list in the param list
+_______________________________________________________________________________________
+FILES CONCEPTS / IO STREAMS
+ParentClass:IOStreams
+1) ByteStream(byte by byte)
+i) InputStream as abstract class
+ia) FileInputStream
+provided with buckets to process faster
+BufferedInputStream
+
+ii) OutputStream as abstract class
+iia) FileOutputStream
+BufferedOutputStream
+we use ObjectInputStream
+as java is oops lang
+we use ObjectOutputStream for stroing the file objs
+2)CharacterStream(char by char)unicode
+i) Reader class
+ia)FileReader
+- BufferedReader
+
+ii) Writer Class
+iib) FileWriter
+- BufferedWriter
+from java 7 try() we can write in try we can skip finaaly block if we use try with resources
+InputStream                 OutputStream
+**ByteStream(does reading nd writing byte by byte) - InputStream->FileInputStream, BufferedInputStream
+	     OutputStream->FileOutputStream, BufferedOutputStream
+In bytestream whenever u wanna write data to file u have to convert ur data
+to bytes and then u have to write it to the destination.
+While reading also the stream gives u byte. convert in into char to get your desired
+output.
+**CharacterStream(does reading and writing caharacter by character)
+	      - Reader -> FileReader,BufferedReader
+	      - Writer -> FileWriter, BufferedWriter
+In char stream no need to convert it while u read and write.
+
+Note: Use Buffer in both the Byte and Char streams to speed up the reading and
+writing process.
+_____________________________________________________________________________________________________
+3:19PM 
+Serialization : 
+--------------
+serializing and de-serializing a particular object/s in some
+persistant area.
+Serilizable-- Interface 0 abstract methods
+ObjectOutputStream - writeObject
+ObjectInputStream - readObject
+transient(use this if u dont want to serialize a particular object in a serialized class)
+Marker Interface - > Serializable
+transient  = anyobject which is sensitve which can be put that keyword cvv
+________________________________________________________
+Scanner class:
+best Practice
+int age = Integer.parseInt(sc.nextLine());
+syso(age);
+_________________________________________________________
+Iterable and iterator
+_____________________________________________________________
+Multithreading:
+start() invokes run() {what thread exactly do}
+once it reaches Runnable it ready to execute what ever we are wrting in run() that is exeuted
+executing run() is called as Running state.
+some times it is interrupted
+MultiThreading
+--------------------------------------
+* set of instructions is a program -> any program under exceution is a process
+  -> part of this process or tiny process or smallest job of a process
+  is basically called as thread. group of these threads sharing the load of 
+ process and doing some job parallelly in an application, such app
+ we call it as multithreaded app.
+*thread basically will help u acheive parallel programming i.e simultaneously
+u can do multiple jobs and make your app much smarter and much faster.
+remember the app which is faster is appreciated in the market and we have
+more customers or clients basically for such app.
+* for eg take a MS Word which is actually multithreaded app. so msword is
+a process which gets created when u double click on it, so now ur
+working on this word doc u do a spelling mistake, for this u have a thread
+within a word app which highlights your mistake in red color so that u can
+go ahead and correct your spelling, and parallely if u have missed ur grammer
+green line u can see coming up between the text asking u to fix your sentence
+with proper grammer.
+* by default all the java app is single threaded, i.e main is a
+application thread created by java.
+* when u create a group of threads they are in a race condition to run
+and finish their jobs, in which u cant identify which thread is coming
+first and which is last.
+* whenever a thread gets created in java it will be having 3 things with it
+[thread_name,priority,thread_group]  [main,5,main]
+priority by default will be 5 or it depends on the thread which is
+creating this thread, which ever thread is creating a thread the priority
+of that particular thread will be passed to new thread.
+MIN_PRIORITY - 1
+NORM_PRIORITY - 5
+MAX_PRIORITY - 10
+*thread has a life cycle -> you have to create a thread i.e you have
+to give a name, priority an group for a thread, next phase it will be put into
+runnable phase where thread is been checked weather it has permission to
+access or not, when thread starts to do its job we call thread is in
+running phase, in this running phase it has interrupts which may be
+generated to wait or to sleep or if some thread with higher priority is coming
+in, once thread completes its running phase it dies.
+*remember thread will be given the memory which has been allocated to process and
+every thread will be having its own private stack to maintain the data of
+the particular thread. 
+*there are basically 2 types of thread
+a)application/foreground thread - these threads which are designed to manage the
+                       foreground operations, the jvm will wait for all these
+			threads to complete the job and then only it will exit.
+b)deamon/background thread - these threads run in a background of our app mostly
+                       desgined for releasing resources or memory, jvm will
+			never wait for any background thread to finish the job.
+			if all the foreground threads are done with the job
+			jvm will exit no matter at that time any background
+			thread is running or not. for eg : garbage collector.
+*in java, threads can be implemented in 2 ways
+a)by extending java.lang.Thread class - where you have all the thread life 
+                                        cycle based methods.
+b)by implementing java.lang.Runnable interface(preffered) - where you have only
+					run() method in which you will give the
+					job of thread.
+* the threads default behaviour of being in a race condition wont be helpful
+when there are commonly shared resources, so you can build a synchronized
+block or a method where you can keep the shared data, in this block or
+a method only one thread is allowed at a time, until that thread
+releases the lock, other thread cant acquire that particular block.
+*every thread in a java will be having a unique ID, using which jvm
+tracks the behaviour of it, all the status and behaviours are being
+managed using ThreadMonitors in java.
+*start() is a method using which we can start a particular thread which will
+call the run() method. in run() method is what you will be giving the
+job of what exactly that thread should do.
+---------------------------------------------------------------------
+to know where current thread is running is
+syso(Thread.currentThread());
+//creating thread
+Thread t = Thread.currentThread();
+t.setName("my main");
+t.setPriority(7); //priorities must be in between 1 to 10
+Syso(Thread.currentThread()) // Thread[MyThread,7,main]
+//creating my own threadclass
+public class myThread extends Thread{
+@Overide
+public void run(){
+syso("hello"+Thread.currentThread());
+}
+.join() : Thread class provides the join() method which allows one thread to wait until another thread completes its execution. 
+If t is a Thread object whose thread is currently executing, 
+then t. join() will make sure that t is terminated before the next instruction is executed by the program.
+synchronized(){}
+//explore wait,notify, notifyall()
+//try producer-consumer problem

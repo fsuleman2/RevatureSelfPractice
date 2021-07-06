@@ -17,3 +17,4 @@ public class LastCharacterToUpperCase {
 	}
 
 }
+//2) If the string is of length even then convert first char to uppercase if it is odd then convert middle char to uppercase
