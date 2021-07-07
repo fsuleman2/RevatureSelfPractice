@@ -170,6 +170,12 @@ public  void iamNonStaticAgain()
 	System.out.println("Iam non static Again from Calulator class");
 }//iamNonStaticAgain
 }//calculator
+Constructor chaining is the process of calling one constructor from 
+another constructor with respect to current object.
+Constructor chaining can be done in two ways:
+
+Within same class: It can be done using this() keyword for constructors in same class
+From base class: by using super() keyword to call constructor from the base class.
 ==============================================================
 Hello.java //from different package
 package static_nonstatic_eg2;
@@ -253,12 +259,12 @@ modification of a existing feature of a parent in child class
 we can override sub class method in subclass itself
 all this done at runtime. because memory is allocated at runtime.
 
-we can't override anything which is static.(bcoz we can access static with obj only which is related to object can be ovveride)
+we can't override anything which is static.(bcoz we can'ts access static with obj only which is related to object can be ovveride)
 final methods also can't be override.
 for doing ovverind there must be parent child relationship, same name and paras. only updating behaviour in child class of a parent method.
 parent method and child method visibility(access modifier) should be same. but u cannot decrease the visibility means(if parent is public then we can't have child method as protected or others bcoz public is higher than all of them)
 public>protected>default>private
-annotaion comes into picture from java v7
+annotation comes into picture from java v7
 what is annotations?
 basically it reminds the developer there is a typo mismatch in the method name of the parent and child class.
 we can make it remind them by using
@@ -285,7 +291,7 @@ where do we apply above concept?
 ans: for comparing two objects we are using
 comparison operators only for primitive datatypes
 if do then it will compare memeory adress
-
+ClassCastException in java is a run time error it occurs when an object can not be casted to another type.
 ____________________________________________________________________________________________
 5:09
 Abstraction: a class is said to be an abstract class if it having at least one abstract method.
@@ -310,7 +316,7 @@ STATIC AND FINAL. u can omit public.
 Abstract:                                      Interface
 1. abstract class uses abstract keyword        1. Interface use interface as keywords to define themselves they are just class itself
 2. We can extend only one class		       2. We can implement any number of interfaces
-3. any class default visibi will be default    3. any variables declared in interface is considered as static and final
+3. any class default visibi will be default    3. any variables declared in interface is considered as static and final/methods() as public and abstract
 4. to make anything as static and final in     4. No Constructors
    in classes we must use those keywords	
 5. We can have overloaded constructors which   5. no such thing 
@@ -411,7 +417,9 @@ relationship.
 - StringBuffer and StringBuilder are mutable objects
 - They can update in same memory itself.
 - There is no common pool for these both which means you must create them using new keyword only.
-- StringBuffer and StringBuilder are Thread Safe
+- StringBuffer and StringBuilder are Thread SafeSimply, thread-safe means
+that a method or class instance can be used by multiple threads at the same time
+ without any problems occurring.
 ______________________________________________________________________________________________
 02/07/2021 10:15AM
 Arrays println("arr["+i+"] : "+arr[i]);
@@ -542,6 +550,7 @@ checked exception: Checked Exception happens when compiler is expecting error an
 Any class that is a direct child of EXCeption class is called Exception
 eg: FileNotFoundException, ClassNotFoundException, SQLException, ParseExeption
 another direct class of class Exception is RuntimeException(unChecked Exception)
+
 RuntimeException(UnChecked Exception) : are the exception in which compiler don't force programmer to handle it,programmer has its choice either it handle it by using try catch or use some logic or right code in such a way that it does not cause error.
 
 eg: ArithmeticException, NullPointerExeption, ClassCastException,ConcurrentModificationException,
@@ -1088,3 +1097,14 @@ Design pattern is to make ur code Readable, more understandable can add modules 
 1) Creational 
 2) Behavioural
 3) Structural
+_________________________________________________________________________________________
+07/07/2021
+----------
+1-1 from 10 to 1pm
+QC and Quiz from 4 to 6pm
+===========================================
+What is RDBMS?
+Normalization(1NF,2NF,3NF)
+What are ACID Properties
+_____________________________________________________________________________________
+08-07-2021
