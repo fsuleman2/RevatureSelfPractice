@@ -497,6 +497,7 @@ in java.
 			weather he wants to handle this or not, if he
 			doesnt handle it, it will lead to abnormal termination.
                       few unchecked exceptions are:
+
 			ArithmeticException, NullPointerException,
                         ConcurrentModificationException,
 			ArrayIndexOutOfBoundException,
@@ -542,21 +543,67 @@ Any app in the world having 3 Layers
 2. Business or Application Layer(All the complex logic here)
 3. Storage or Persistance or DB Layer (Databse SQL/NO SQL)
 
-Object
+Object - super class for all the classes
+
+Throwable class : any exception can be re thrown this layer to this layer.(3tier)
+one side it is called as error class and another is Exception class
+
+Diff between Error and Exception
+Error: like ur application got crashed which u can't handle.
+ex: something which is not controllable like overflow of RAM.
+Exception: is some situation which u can handled can control and reovery from
+it and communicate with customer and get back that Application live.
+
 1)Throwable
 1a) Error : like ur application got crashed which u can't handle.
 1b) Exceptionclass is the superclass for all the exception.
-checked exception: Checked Exception happens when compiler is expecting error and want programmer to handle it. until you don't handle it I won't fix that.
-Any class that is a direct child of EXCeption class is called Exception
-eg: FileNotFoundException, ClassNotFoundException, SQLException, ParseExeption
+
+1bi) Checked exception(force programmer to handle it): Checked Exception happens when compiler is suspecting this
+ particular line definitly going to have error and force programmer to handle it. 
+until you don't handle it I won't fix that compilation errors.
+Any class that is a direct child of EXCeption class is called CheckedException.
+
+Eg: FileNotFoundException, ClassNotFoundException, SQLException, ParseExeption
 another direct class of class Exception is RuntimeException(unChecked Exception)
 
-RuntimeException(UnChecked Exception) : are the exception in which compiler don't force programmer to handle it,programmer has its choice either it handle it by using try catch or use some logic or right code in such a way that it does not cause error.
+1bii) RuntimeException(UnChecked Exception((will not force programmer to handle it)) : are the exception in which compiler don't force programmer to handle it,
+programmer has its choice either it handle it by using try catch or use some logic or right code in such a way that it does not cause error.
 
 eg: ArithmeticException, NullPointerExeption, ClassCastException,ConcurrentModificationException,
-IndexOutOfBoundException(ArrayIndexOutOfBound and StringIndexOutOfBoundException)
+IndexOutOfBoundException(ArrayIndexOutOfBoundException and StringIndexOutOfBoundException)
 
-*if you want to create your own custom CheckedException
+*if you want to create your own custom CheckedException u will extend it from ExceptionClass directly.
+*if you want to create your own custom UnCheckedExceptionthen you will extend it from RuntimeException.
+Exceptional Handling:
+1) try-catch-finally
+catch is only the handler
+try - suspecting lines of code to be put here. try finally also acceptable.
+catch - it receives from try and handles it.
+-try can have any no. of catch blocks but only and only one finally block.
+-finally is a block of code which we use for releasing the resources. eg: DB closing connection, file closing.
+-finally it executes irrespective of try and catch.
+
+2) throws
+this method is suspected to throw erorr. we are declaring there beside method definiton and making programming remind.
+hey, this is a block of code which suspected to throws a error. its ur choice handle it or not in advnced boldere kia exeptionn hai.
+ throws is info to the programmer
+
+
+3) throw: when to throw at what scenario i need to throw.
+step1 : when the exeception occur our jvm  creates an exeception object whenver an exeption occur in runtime envi which some msg.
+step2: it looks throws is it rethrowing then will go back to previous method.
+are You handling it? NO then go to main if then also  no? terminate it instead of handling it.
+throw is info to the runtime exception
+----------------------------------------------------
+creates a object of exception and throw.
+when someone enters invalid email how can you say that? 
+we can!! by using throw with our customize message. that ur email is invalid, java wouldn't tell that, programmer has to do that.
+by this java will know that okay in that case java has to throw exception.
+
+Rule : only one catch{} at a time will be executed, because in try if line 2 got exception that time only it will leave try and look for catch{},
+it would not look for move for line 3..... if there is no catch try{} will terminate abnormally.
+2) Parent exception should be in bottom
+what i mean by that is catch(Exception e){} should be the last catch above that u can add Exception class child exception like array,index,arith etc.
 ____________________________________________________________________
 3:38PM Helper Class java.util.Collections; sort(),binarySearch() 
 Collections basicallly tries to give solution to a given problem
@@ -618,6 +665,13 @@ Collections.sort(li1,Collections.reverseOrder()); //it is an overloaded method
 Collections.sort(li1);
 Collections.binarySearch(li1,23);
 li1.contains(100); //true searches and print true if there.
+
+Difference between Collection and Collections.
+Collection is an interface        Collections is a utility class
+
+It is an root interface for      It is an helper class which consist of lots of static methods or helper methods such as binarySearch(), reverseOrder() etc.
+all the interfaces such as list,
+set,queues etc. except map.
 _____________________________________________________
 Task- compare the LL and PriorityQuee and come up with code exmple.
 ________________________________________________
@@ -1100,7 +1154,8 @@ Design pattern is to make ur code Readable, more understandable can add modules 
 _________________________________________________________________________________________
 07/07/2021
 ----------
-1-1 from 10 to 1pm
+10:21 - project zero dicussion 
+1-1 from 10:45 to 1pm
 QC and Quiz from 4 to 6pm
 ===========================================
 What is RDBMS?
@@ -1108,3 +1163,4 @@ Normalization(1NF,2NF,3NF)
 What are ACID Properties
 _____________________________________________________________________________________
 08-07-2021
+check word file.

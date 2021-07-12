@@ -47,6 +47,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-2(SQL JDBC)"/>
 			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-1\thread_demo"/>
 			<item value="E:\RevatureSelfPractice\July1st_Task"/>
 			<item value="E:\RevatureSelfPractice\ten10_array_problems_solutions"/>
