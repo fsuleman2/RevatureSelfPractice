@@ -49,6 +49,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\RevatureSelfPractice\my_servlet_login_page"/>
+			<item value="E:\RevatureSelfPractice\student_restful_api_demo"/>
+			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-3(HTML-CSS-Bootstrap-Javascript-Servlet)\servlet_demos\login_web_app"/>
 			<item value="E:\project0"/>
 			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-2(SQL JDBC)"/>
 			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-1\thread_demo"/>
