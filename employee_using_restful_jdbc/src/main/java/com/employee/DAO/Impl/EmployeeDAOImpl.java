@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.employee.DAO.EmployeeDAO;
 import com.employee.dbutil.PostgresConnection;
+import com.employee.model.Customer;
 import com.employee.model.Employee;
 
 public class EmployeeDAOImpl implements EmployeeDAO{
@@ -55,6 +56,27 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		System.out.println(e.getMessage());
 	}
 		return empList;
+	}
+
+	@Override
+	public Customer createCustomer(Customer customer) {
+		try(Connection connection = PostgresConnection.getConnection()){
+			System.out.println("Im inside try DAO cust");
+			String sql = "insert into employee_schema.custdetails(custname,custage) values(?,?)";
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, customer.getCustName());
+			preparedStatement.setInt(2, customer.getCustAge());
+			int rowAffected = preparedStatement.executeUpdate();
+			System.out.println("rowaffected"+rowAffected);
+			if(rowAffected!=1) {
+				System.out.println("Rows not affected");
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return customer;
 	}
 		
 

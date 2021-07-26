@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.employee.model.Customer;
 import com.employee.model.Employee;
 import com.employee.service.EmployeeCrudService;
 import com.employee.service.impl.EmployeeCrudServiceImpl;
@@ -24,7 +25,6 @@ public class EmployeeCrudController extends HttpServlet {
      */
     public EmployeeCrudController() {
         super();
-        // TODO Auto-generated constructor stub
     }
     private EmployeeCrudService employeeCrudService=new EmployeeCrudServiceImpl();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,10 +38,16 @@ public class EmployeeCrudController extends HttpServlet {
 	Gson gson = new Gson();
 	Employee employee = gson.fromJson(request.getReader(), Employee.class);
 	employee = employeeCrudService.createEmployee(employee);
-	System.out.println(employee);
 	response.setContentType("application/json;charset=UTF-8");
 	PrintWriter out=response.getWriter();
 	out.print(gson.toJson(employee)); //POJO TO JSON
+	
+//	Gson gson1 = new Gson();
+//	Customer customer = gson1.fromJson(request.getReader(), Customer.class);
+//	customer = employeeCrudService.createCustomer(customer);
+//	System.out.println(customer);
+//	PrintWriter out1=response.getWriter();
+//	out1.print(gson1.toJson(customer));
 	}
 	
 
