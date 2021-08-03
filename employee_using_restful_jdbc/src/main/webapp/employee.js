@@ -29,3 +29,12 @@ b2.onclick = () => {
     })
     alert("Record Inserted Successfully")
 }
+b3.onclick =() => {
+    let url = "http://localhost:8080/employee_using_restful_jdbc/test";
+    fetch(url)
+        .then(response => response.json())
+        .then(res => {
+            let data = "<p>res.name</p>"
+             document.getElementById("p").innerText=data;
+            })
+}

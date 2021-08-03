@@ -14,4 +14,14 @@
     <servlet-name>EmployeeCrudController</servlet-name>
     <url-pattern>/employee</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TestController</display-name>
+    <servlet-name>TestController</servlet-name>
+    <servlet-class>com.employee.controller.TestController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestController</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
 </web-app>

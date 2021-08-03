@@ -47,20 +47,13 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="E:\project1"/>
-			<item value="E:\RevatureSelfPractice\my_servlet_login_page"/>
-			<item value="E:\RevatureSelfPractice\student_restful_api_demo"/>
-			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-3(HTML-CSS-Bootstrap-Javascript-Servlet)\servlet_demos\login_web_app"/>
-			<item value="E:\project0"/>
-			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-2(SQL JDBC)"/>
-			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-1\thread_demo"/>
-			<item value="E:\RevatureSelfPractice\July1st_Task"/>
-			<item value="E:\RevatureSelfPractice\ten10_array_problems_solutions"/>
-			<item value="E:\RevatureSelfPractice\inheritance_demo"/>
-			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-1\inheritance_demo"/>
-			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week-1\constructor_demo"/>
-			<item value="E:\Revature_Stuff\java_msa_India_batch\Week-1\constructor_demo"/>
-			<item value="E:\Revature_Stuff\java_msa_India_batch\Week-1\data_types_static_nonstatic_demo"/>
+			<item value="E:\RevatureSelfPractice\hibernatefirstdemo"/>
+			<item value="E:\Vinay Sir repos\java_msa_India_batch\Week4\jpademo"/>
+			<item value="E:\RevatureSelfPractice"/>
 		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="380"/>
+		<item key="DIALOG_Y_ORIGIN" value="170"/>
 	</section>
 </section>

@@ -1,4 +1,4 @@
-DT: 29/06/2021
+DT: 29/06/2021 nandini.paras@revature.com
 mark and sweep algo used for garbage collection,Mark the objecs and sweeps the memory in a rapid way.
 java is bottom to top
 compiler/Interpretor
@@ -1164,3 +1164,77 @@ What are ACID Properties
 _____________________________________________________________________________________
 08-07-2021
 check word file.
+_______________
+26-7-2021
+Before AWS:
+Suppose you want to host a website, these are the following things that you would need to do:
+1) Buying a stack of servers
+2) if high traffic maintaince? more servers
+3) Monitoring and Maintain servers
+
+if you consider costs then this setup is expensive
+troubleshooting problems can be tedious and may conflict with your business goals.
+since the traffic is varying, your servers will be idle most of the time.
+What is cloud? Cloud is a huge space which has many services available you can just go and rent those services as we want on a rent basis
+-------------------------------------------------
+28/7/2021 11pm
+docker hub : public docker image
+spring web
+change port
+server.port = 9000
+conternezation : technqiue rather run on vm we can run on docker
+docker archi
+docker engine : docker
+client can be cmd or shell
+docker_host : docker daemon : it listen the commands internally it convert into restapi calls and see the command and execute it 
+docker have images it takes the image and create docker instance.
+here image is nothing the softwares we want.
+there are basically two images 1)local registory or remoterepo
+2) remote registory or remote repo
+from the image we can make containers
+if image is not available the docker demon will go in public or remote registory and get it from there
+
+Docker cmd:
+docker --version
+docker info 
+	Image commands : 
+		docker images : what images availbe in docker local registry.
+		docker rmi id_of_the images or name : To remove an image.
+		docker images : to list all the images
+		docker pull image_name: to pull image from public repo ex : docker pull ubuntu
+	Container commands:
+		docker ps container_name: if want to see what containers are running. ex: pull ubuntu
+		docker ps -all : to see all container which are running or stopped.
+		docker container rm container_name -f :  to remove a container but here images will not remove
+		
+
+How to load an image into an contianer?
+First create a container:
+	docker run  --name name of the container image id or name
+	ex : $docker run --name myubuntu -d ubuntu
+	$docker run -itd myubuntu bash
+here -it means interactive mode thru bash im going to interact with ubuntu
+d means keep it running.
+
+$docker exec -it docker_cont_id bash : for running and exeuting.
+*****2:30pm
+how to convert .jar to docker file
+frist generate .jar by maven
+second create docker file by cliking on new file -> Dockerfile
+copy this in Dockerfile DockerfileFROM openjdk:11COPY ./target/icicibankapp.jar icicibankapp.jarCMD ["java","-jar","icicibankapp.jar"]
+open commd with loc where that Dockerfile is located
+then type this command
+$docker build-t icicibankapp . -f Dockerfile
+-t : image tag name
+. -f file name
+
+Will get conternzation after running above command.
+*remember the port number
+next step running that image
+$docker run --name iciciapp -p 9000:9000 icicibank.app
+
+28-07-2021 4:30pm
+showed java n sql project into docker 
+$docker inpsect id_of_container //it will give information realted to container will be dispplayed.
+-------------------------------------------------------------------
+Elastic Beampack for deplyoing webapps
