@@ -47,11 +47,25 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Syed\Downloads\Compressed\indianbankapp-master"/>
+			<item value="F:\demo"/>
+			<item value="F:\RevatureSelfPractice\sbibankapp"/>
+			<item value="F:\Vinay Sir Repos\java_msa_India_batch\Week4\sbibankapp"/>
+			<item value="F:\project0\bank_app"/>
+			<item value="F:\project1\bankapp_v2"/>
 			<item value="F:\revature-project1-master\bankapp_v2"/>
 			<item value="F:\RevatureSelfPractice\jpademo"/>
 			<item value="F:\RevatureSelfPractice\emshibernateCRUDHQL"/>
 			<item value="F:\RevatureSelfPractice\employee_using_restful_jdbc"/>
 			<item value="F:\RevatureSelfPractice\Array_CRUD"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="380"/>
+		<item key="DIALOG_Y_ORIGIN" value="185"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
 </section>

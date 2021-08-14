@@ -1,0 +1,60 @@
+Company-Name_original: {{company}}
+<br><br>
+Company-NameWithPipe: {{company |uppercase}}
+<br><br>
+JobProfile_original : {{job_profile}}<br><br>
+JobProfile_lowerPipe : {{job_profile|lowercase}}
+<br><br>
+Date of Joining_original : {{doj}}
+<br><br>
+Date of Joining_DatePipe : {{doj | date}}<br><br>
+Date of Joining_DatePipe_full : {{doj | date:'full'}}<br><br>
+Date of Joining_DatePipe_short : {{doj | date:'short'}}<br><br>
+Date of Joining_DatePipe_medium : {{doj | date:'medium'}}<br><br>
+Date of Joining_DatePipe_long : {{doj | date:'long'}}<br><br>
+Date of Joining_DatePipe_customize : {{doj | date:'dd/MM/YYYY'}}<br><br>
+Date of Joining_DatePipe_Month_name : {{doj | date:'dd/MMMM/YYYY'}}<br><br>
+<hr>
+marks_in_percentage_original : {{marks}}
+<br><br>
+marks_in_percentage_percentage : {{marks| percent}}
+<br><br>
+salary_original:{{salary}}
+<br><br>
+salary_withNumberPipe : {{salary | number:'4.1-2'}}
+<!-- beforedotdigit.afterdotdigit
+3.3-5
+-->
+<br><br>salary_withCurrencyPipe : {{salary |currency:'INR'}}
+<br><br>
+compnay_original : {{company}};
+<br><br>
+company_withSlicePipe : {{company| slice:3:7}};
+<br><br>
+company_withSlicePipe_reverse : {{company| slice:-3}};
+<br><br>
+company_withSlicePipe_chaining : {{company| slice:3:7|uppercase}};
+<br><br>
+MyCustomPipe_forSqrt : {{49 | mycustompipe}}
+<br><br>
+power_of_Number_pipe : {{2|power:10}}
+
+<!-- Binding Examples -->
+<br><br>
+<span>Binding Examples</span>
+<br><br>
+<input type="text" name="username" [value]="username" class="text">
+<br><br>
+<input [type]="radio" name="username" [value]="username" class="text">
+<br><br>
+<input [type]="checkbox" name="username" [value]="username" class="text">
+<br><br>
+<input [type]="date" name="username" [value]="username" class="text">
+<br><br>
+<span>Even binding</span><br><br>
+
+    <input type="text" name="pan" id="pan" placeholder="Enter your PAN Number" id="">
+    <button (click)="getPan()">Submit</button>
+   
+    <input type="text" [(ngModel)]="myName">
+    {{myName}}

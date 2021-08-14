@@ -18,7 +18,8 @@ public class EMS {
 		String eName = sc.nextLine();
 		e.seteId(id);
 		e.seteName(eName);
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("ems");
+		//step1: Creating an entity manager object
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("ems"); //"ems" is a persistence unit name come from the 'persistence.xml' file
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin(); 
 		em.persist(e); // insert

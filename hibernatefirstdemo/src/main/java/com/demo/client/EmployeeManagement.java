@@ -21,6 +21,7 @@ public class EmployeeManagement {
 				.buildSessionFactory();
 		
 		Session session = sf.openSession();
+		//em.getTransaction().begin();  in JPA
 		session.beginTransaction(); // transaction object t
 		session.persist(e);
 		session.getTransaction().commit();

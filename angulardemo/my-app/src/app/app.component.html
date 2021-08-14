@@ -1,0 +1,39 @@
+<app-myfirstcomponent></app-myfirstcomponent>
+{{title}}
+<div *ngIf="isActive">
+  <h1>Im active</h1>
+</div>
+<div *ngIf="isInActive;else nodata">
+  <h1>Im inactive</h1>
+</div>
+
+<ng-template #nodata>
+  <h2>No details found</h2>
+</ng-template>
+
+<!-- ngFor -->
+<p *ngFor="let playerName of players">{{playerName}}</p>
+<span>NG for Even numbers</span>
+<p *ngFor="let even of evenNumbers">
+ <span *ngIf="even%2==0">  Even Numbers: {{even}} </span>
+   <span *ngIf="even%2!=0"> Odd Numbers:{{even}} </span>
+</p>
+
+
+<!-- regular css -->
+
+<div class="content1">IM  A REGULAR class</div>
+<hr>
+<!-- Binded with style and ngClass -->
+<div [ngClass]="ngClassName">IM BINDED ONE with ngClass</div>
+<!-- <br><span [ngStyle]="ngStyleName">Hello im ngStyle example</span> -->
+
+<!-- button example -->
+<button class="btn btn-warning" (click)="appear1()">I'M BUTTON ONE</button>
+<button class="btn btn-success" (click)="appear2()">I'M BUTTON Two</button>
+
+
+
+
+
+<router-outlet></router-outlet>
