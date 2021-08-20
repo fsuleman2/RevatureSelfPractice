@@ -1,0 +1,8 @@
+count: {{count}}
+<button (click)="incrementCount()">+</button>
+<button (click)="decrementCount()">-</button>
+<hr>
+<div>
+    <!-- child component -->
+    <app-firstcomp [childCount]="count"></app-firstcomp>
+</div>
