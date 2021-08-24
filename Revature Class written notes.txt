@@ -1238,3 +1238,38 @@ showed java n sql project into docker
 $docker inpsect id_of_container //it will give information realted to container will be dispplayed.
 -------------------------------------------------------------------
 Elastic Beampack for deplyoing webapps
+-------
+
+22-08-2021
+-----------
+Spring : Spring is a dependency injection framework to make java application loosely coupled.
+-> It provides IOC container which we can do dependency injection.
+-> Spring framework makes the easy development of JavaEE application.
+Dependency Injection : It is an design pattern by following which we can create an application.
+----------------------------------------------
+*********************************** GIT COMMANDS
+$git diff
+- is used to see the difference made
+$git log --oneline 
+- is used to see the sha and other detais
+$git log --oneline 
+- is used to see details in more clear way
+$git branch
+- it is used to list the branches
+$git branch branch_name
+- it is used to create a branch
+$git checkout branch_name 
+- to move to that branch
+$git branch -d existing_br name
+- to delete that particular br
+
+$ git checkout -b footer master
+- Switch and Create Branch In One Command
+
+$ git log --oneline --decorate --graph --all
+- See All Branches chnages and  commit At Once
+-> Now we have multiple sets of changes on three different branches. We can't see other branches in the git log output unless we switch to a branch. Wouldn't it be nice if we could see all branches at once in the git log output.
+
+-> As you've hopefully learned by now, the git log command is pretty powerful and can show us this information. We'll use the new --graph and --all flags
+
+-> The --graph flag adds the bullets and lines to the leftmost part of the output. This shows the actual branching that's happening. The --all flag is what displays all of the branches in the repository.
