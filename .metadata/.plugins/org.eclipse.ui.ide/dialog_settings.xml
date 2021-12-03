@@ -47,6 +47,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\springbootworkspace\CustomerManagementSystem"/>
+			<item value="E:\springbootworkspace\EurekaServerDemo"/>
+			<item value="E:\revature-project3\trainbackend"/>
+			<item value="E:\Project2-master\examserver"/>
+			<item value="E:\springbootworkspace\JunitDemo-1"/>
 			<item value="E:\RevatureSelfPractice\EmployeeApplication"/>
 			<item value="F:\Vinay Sir Repos\java_msa_India_batch\Week 5\EmployeeApplication"/>
 			<item value="F:\RevatureSelfPractice\EmployeeApplication"/>
@@ -72,5 +77,11 @@
 		</list>
 	</section>
 	<section name="ExternalProjectImportWizard">
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
 	</section>
 </section>

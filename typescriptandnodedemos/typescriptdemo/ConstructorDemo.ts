@@ -1,6 +1,6 @@
 export class PlayerDetails extends Employee{
     /*once we right export here before the class it will become module
-     and could be accesible only when we dp import from other file.
+     and could be accesible only when if we do import from other file.
      */
     //declaration
     playerName : string;

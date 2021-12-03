@@ -7,6 +7,8 @@
  * 1. Boolean
  * 2.Number
  * 3.Strings
+ * 4.undefined
+ * 5.null
  */
 let b : boolean = false;
 console.log(b);

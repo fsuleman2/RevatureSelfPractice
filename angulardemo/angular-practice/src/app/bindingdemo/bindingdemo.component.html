@@ -1,0 +1,17 @@
+<h1>Data Binding in Angular</h1>
+
+<p>1. String Interpolcation Example</p>
+<h5>{{title}}</h5>
+<button disabled={{value}}>Click</button>
+<p>2. Property Binding[]</p>
+<img [src]="imgUrl" alt="" height="100px" width="100px">
+<br><button [disabled]="value">Click</button>
+
+<h2> Event Binding</h2>
+<button (click)="changeTitle()">Click</button>
+<h5>{{title}}</h5>
+
+<input [(ngModel)]="username" type="text" name="" id="">
+
+{{username | json}}
+

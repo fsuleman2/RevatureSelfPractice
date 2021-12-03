@@ -1273,3 +1273,23 @@ $ git log --oneline --decorate --graph --all
 -> As you've hopefully learned by now, the git log command is pretty powerful and can show us this information. We'll use the new --graph and --all flags
 
 -> The --graph flag adds the bullets and lines to the leftmost part of the output. This shows the actual branching that's happening. The --all flag is what displays all of the branches in the repository.
+
+
+-----------------JAVA INTERNAL EXECUTION-----------------
+
+JIT COMPILER optimizes our code and imporve our code performance.
+
+javacode
+abc.java is compiled and check for error if no error found compiler will generate bytecode that is there inside abc.class file.
+this file is now passed to runtime block
+where class loader will again scans the byte code for errors
+and after scanning it is passed to bytecode verifier
+this byte code verifer decided where to pass JIT then interpreter or directly to the interpreter.
+
+JIT comes to action when there is some redundant lines that need to be removed and do some special checks, so that interpreter don't have to put extra efforts for interpreting the code.
+
+so after JIT done its part it will pass on the code to the interpreter.
+
+now interpreter executes the code line by line and simultaneoulsy passes to the OS and OS will pass to the hardware and process the output.
+
+so bascially in common terms JIT ease the load of the interpreter and optimizes our code and imporves the code performance.

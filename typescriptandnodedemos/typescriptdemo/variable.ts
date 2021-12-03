@@ -26,3 +26,4 @@ for(const score of names){
 console.log("\nIam for each\n");
 names.forEach(e=>console.log(e))
 
+let arrayname:string[]=["suleman"];
